@@ -1,5 +1,6 @@
 import Header from './Header';
 import Footer from './Footer';
+import PropTypes from 'prop-types';
 
 const Layout = ({ children }) => {
     return (
@@ -9,6 +10,10 @@ const Layout = ({ children }) => {
             <Footer />
         </div>
     );
+};
+
+Layout.propTypes = {
+    children: PropTypes.node,
 };
 
 export default Layout;

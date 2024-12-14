@@ -13,6 +13,6 @@ const Banner = ({ image, text }) => {
 Banner.propTypes = {
     image: PropTypes.string,
     text: PropTypes.string,
-  };
+};
 
 export default Banner;

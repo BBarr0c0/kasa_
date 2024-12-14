@@ -12,7 +12,7 @@ const AppRouter = () => {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
-                    <Route path="/property" element={<Property />} />
+                    <Route path="/property/:id" element={<Property />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </Layout>
