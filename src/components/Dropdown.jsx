@@ -10,7 +10,7 @@ const Dropdown = ({ title, content }) => {
     };
 
     return (
-        <div className={`dropdown`}>
+        <div className="dropdown">
             <div className="dropdown-header" onClick={toggleDropdown}>
                 <h3>{title}</h3>
                 <span className={`arrow ${isOpen ? 'down' : 'up'}`}></span>
@@ -21,8 +21,8 @@ const Dropdown = ({ title, content }) => {
 };
 
 Dropdown.propTypes = {
-    title: PropTypes.string,
-    content: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    content: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
 };
 
 export default Dropdown;
