@@ -9,6 +9,11 @@
     border-radius: 30px;
     margin: 0 auto;
 
+    @media (max-width: 750px) {
+        height: 111px;
+        justify-content: start;
+    }
+
     .banner-image {
         width: 100%;
         height: 100%;
@@ -36,5 +41,12 @@
         text-align: center;
         z-index: 3;
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+
+        @media (max-width: 750px) {
+            font-size: 24px;
+            text-align: start;
+            margin-left : 20px;
+            width: 230px;
+        }
     }
 }

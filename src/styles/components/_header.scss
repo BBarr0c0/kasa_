@@ -4,11 +4,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 72px;
-    margin: 20px;
+    padding: 0 85px;
+    margin: 40px 0;
+
+    @media (max-width: 750px) {
+        padding: 0 20px;
+        margin: 20px 0;
+    }
 
     .header-logo {
         width: 210px;
+
+        @media (max-width: 750px) {
+            width: 145px;
+        }
     }
 
     nav {
@@ -22,6 +31,11 @@
             color: black;
             font-size: 24px;
             position: relative;
+
+            @media (max-width: 750px) {
+                margin-left: 30px;
+                font-size: 12px;
+            }
 
             &:hover {
                 color: #ff6060;

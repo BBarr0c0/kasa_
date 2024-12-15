@@ -1,11 +1,15 @@
 .dropdown {
     border: 1px solid #e3e3e3;
     border-radius: 8px;
-    margin: 67px 120px;
+    margin: 66.5px 120px;
     overflow: hidden;
     background-color: #f9f9f9;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+
+    @media (max-width: 750px) {
+        margin: 30px 0;
+    }
 
     .dropdown-header {
         display: flex;
@@ -16,11 +20,14 @@
         background-color: #ff6060;
 
         h3 {
-            font-size: 18px;
+            font-size: 24px;
             font-weight: 600;
             margin: 0;
             color: white;
-            font-size: 24px;
+
+            @media (max-width: 750px) {
+                font-size: 13px;
+            }
         }
 
         .arrow {
@@ -50,6 +57,10 @@
         line-height: 1.5;
         animation: slideDown 0.3s ease;
         text-align: start;
+
+        @media (max-width: 750px) {
+            font-size: 12px;
+        }
 
         @keyframes slideDown {
             from {

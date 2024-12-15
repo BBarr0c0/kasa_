@@ -1,6 +1,10 @@
 .home {
     padding: 0 85px;
 
+    @media (max-width: 750px) {
+        padding: 0 20px;
+    }
+
     .properties-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, 340px);
@@ -10,5 +14,12 @@
         padding: 55px 60px;
         margin: 40px 0;
         border-radius: 20px;
+
+        @media (max-width: 750px) {
+            background-color: white;
+            padding: 0;
+            margin: 20px 0;
+            gap: 20px;
+        }
     }
 }
