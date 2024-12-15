@@ -3,3 +3,19 @@
     justify-content: center;
     align-items: center;
 }
+
+@mixin responsive-padding($desktop-padding, $mobile-padding) {
+    padding: $desktop-padding;
+
+    @media (max-width: 750px) {
+        padding: $mobile-padding;
+    }
+}
+
+@mixin responsive-font-size($desktop-size, $mobile-size) {
+    font-size: $desktop-size;
+
+    @media (max-width: 750px) {
+        font-size: $mobile-size;
+    }
+}

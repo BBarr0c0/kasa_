@@ -1,10 +1,10 @@
+@use '../mixins' as *;
+
 .about {
     text-align: center;
-    padding: 0 85px;
-    // min-height: 68.9vh;
+    @include responsive-padding(0 85px, 0 20px);
 
     @media (max-width: 750px) {
-        padding: 0 20px;
         min-height: 70.5vh;
     }
 }

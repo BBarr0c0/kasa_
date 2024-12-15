@@ -1,25 +1,25 @@
-.home {
-    padding: 0 85px;
+@use '../mixins' as *;
+@use '../variables' as *;
 
-    @media (max-width: 750px) {
-        padding: 0 20px;
-    }
+.home {
+    @include responsive-padding(0 85px, 0 20px);
 
     .properties-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, 340px);
-        gap: 55px;
+        gap: $gap-large;
         justify-content: center;
-        background-color: #F6F6F6;
-        padding: 55px 60px;
+        background-color: $grid-color;
+        border-radius: $border-radius;
         margin: 40px 0;
-        border-radius: 20px;
+
+        @include responsive-padding(55px 60px, 0);
 
         @media (max-width: 750px) {
-            background-color: white;
-            padding: 0;
+            grid-template-columns: repeat(auto-fit, 100%);
+            background-color: $primary-text-color;
             margin: 20px 0;
-            gap: 20px;
+            gap: $gap-small;
         }
     }
 }

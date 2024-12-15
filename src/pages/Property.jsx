@@ -36,10 +36,6 @@ const Property = () => {
                     <h1>{property.title}</h1>
                     <p>{property.location}</p>
                 </div>
-                <div className="property-host">
-                    <p>{property.host.name}</p>
-                    <img src={property.host.picture} alt={property.host.name} />
-                </div>
             </div>
 
             <div className="property-details">
@@ -50,9 +46,22 @@ const Property = () => {
                         </span>
                     ))}
                 </div>
-                <div className="property-rating">
-                    {'★'.repeat(property.rating)}
-                    {'☆'.repeat(5 - property.rating)}
+
+                <div className="property-host-rating">
+                    <div className="property-host">
+                        <p>{property.host.name}</p>
+                        <img src={property.host.picture} alt={property.host.name} />
+                    </div>
+                    <div className="property-rating">
+                        {[...Array(5)].map((_, index) => (
+                            <span
+                                key={index}
+                                className={`star ${index < property.rating ? 'filled' : 'empty'}`}
+                            >
+                                ★
+                            </span>
+                        ))}
+                    </div>
                 </div>
             </div>
 

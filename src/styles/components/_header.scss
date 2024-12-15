@@ -1,15 +1,15 @@
-@use '../variables';
+@use '../variables' as *;
+@use '../mixins' as *;
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 85px;
-    margin: 40px 0;
+    margin: $gap-large 0;
+    @include responsive-padding(0 85px, 0 20px);
 
     @media (max-width: 750px) {
-        padding: 0 20px;
-        margin: 20px 0;
+        margin: $gap-small 0;
     }
 
     .header-logo {
@@ -27,22 +27,22 @@
         }
 
         .nav-link {
-            margin-left: 60px;
-            color: black;
-            font-size: 24px;
+            margin-left: $gap-large;
+            color: $secondary-text-color;
+            font-size: $font-size-medium;
             position: relative;
 
             @media (max-width: 750px) {
-                margin-left: 30px;
-                font-size: 12px;
+                margin-left: $gap-small;
+                font-size: $font-size-very-small;
             }
 
             &:hover {
-                color: #ff6060;
+                color: $primary-color;
             }
 
             &.active {
-                color: #ff6060;
+                color: $primary-color;
                 font-weight: bold;
 
                 &::after {
@@ -50,7 +50,7 @@
                     display: block;
                     height: 2px;
                     width: 100%;
-                    background-color: #ff6060;
+                    background-color: $primary-color;
                     position: absolute;
                     bottom: 0;
                     left: 0;
@@ -59,7 +59,7 @@
         }
 
         li a {
-            color: black;
+            color: $secondary-text-color;
         }
     }
 
