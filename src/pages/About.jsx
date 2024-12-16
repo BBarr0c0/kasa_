@@ -28,12 +28,12 @@ const aboutList = [
 ];
 const About = () => {
     return (
-        <main className="about">
+        <div className="about">
              <Banner image={bannerAbout} />
              {aboutList.map((item, index) => (
                 <Dropdown key={index} title={item.title} content={item.content} />
             ))}
-        </main>
+        </div>
     );
 };
 
