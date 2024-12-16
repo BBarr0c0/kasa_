@@ -1,87 +1,107 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+
 .property {
-    padding: 0 85px;
-    min-height: 69vh;
-
-    .property-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 20px 0;
-
-        .property-title-location {
-            h1 {
-                font-size: 36px;
-                color: #ff6060;
-            }
-            p {
-                font-size: 18px;
-                color: black;
-            }
-        }
-    }
+    min-height: 66vh;
+    @include responsive-padding(0 85px, 0 20px);
 
     .property-details {
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        margin: 20px 0;
+        margin: $gap-small 0;
 
-        // test en cours
-        position: relative;
+        @media (max-width: 750px) {
+            flex-direction: column;
+        }
 
-        .property-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+        .property-title-location-tags {
+            width: 78%;
 
-            .tag {
-                color: white;
-                background: #ff6060;
-                border-radius: 10px;
-                padding: 5px 30px;
-                font-size: 14px;
+            @media (max-width: 1000px) {
+                width: 60%;
+            }
+
+            @media (max-width: 750px) {
+                width: 100%;
+            }
+
+            .property-title {
+                color: $primary-color;
+                @include responsive-font-size($font-size-large, $font-size-small);
+            }
+
+            .property-location {
+                font-weight: 500;
+                @include responsive-font-size($font-size-small, $font-size-very-small);
+
+                @media (max-width: 750px) {
+                    margin-top: $gap-small;
+                }
+            }
+
+            .property-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: $gap-small;
+                margin: $gap-small 0;
+
+                .tag {
+                    color: $primary-text-color;
+                    background: $primary-color;
+                    border-radius: $border-radius;
+                    padding: 5px 30px;
+                    @include responsive-font-size($font-size-small, $font-size-very-small);
+
+                    @media (max-width: 750px) {
+                        padding: 5px 15px;
+                    }
+                }
             }
         }
 
         .property-host-rating {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-    
+
+            @media (max-width: 750px) {
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: space-between;
+                align-items: center;
+            }
+
             .property-host {
                 display: flex;
                 align-items: center;
 
-                // test en cours
-                position: absolute;
-                top: -90px;
-                right: 0;
-    
                 p {
-                    font-size: 18px;
-                    color: #ff6060;
-                    margin-right: 5px;
+                    color: $primary-color;
+                    margin-right: $gap-small;
+                    @include responsive-font-size($font-size-small, $font-size-very-small);
                 }
-    
+
                 img {
                     width: 64px;
-                    height: 64px;
                     border-radius: 50%;
+
+                    @media (max-width: 750px) {
+                        width: 32px;
+                    }
                 }
             }
-    
+
             .property-rating {
-                font-size: 30px;
-                color: #ff6060;
-                letter-spacing: 10px;
+                display: flex;
+                justify-content: space-evenly;
+                color: $primary-color;
+                margin: $gap-small 0;
+                @include responsive-font-size(30px, $font-size-small);
 
                 .star {
                     &.filled {
-                        color: #ff6060;
+                        color: $primary-color;
                     }
-            
+
                     &.empty {
-                        color: #E3E3E3;
+                        color: $border-color;
                     }
                 }
             }
@@ -90,80 +110,20 @@
 
     .property-dropdowns {
         display: flex;
-        gap: 100px;
-        margin: 30px 0;
-    
+        gap: $gap-large;
+        margin-bottom: 50px;
+
+        @media (max-width: 750px) {
+            flex-direction: column;
+            gap: $gap-small;
+        }
+
         .dropdown-container {
             flex: 1;
-        
+
             .dropdown {
                 margin: 0;
             }
-        }
-    }
-
-    // Mobile Styles
-    @media (max-width: 750px) {
-        padding: 0 20px;
-
-        .property-header {
-    
-            .property-title-location {
-                h1 {
-                    font-size: 18px;
-                }
-                p {
-                    font-size: 14px;
-                    margin-top: 10px;
-                }
-            }
-        }
-
-        .property-details {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 15px;
-
-            .property-tags {
-                order: -1;
-
-                .tag {
-                    padding: 5px 15px;
-                    font-size: 10px;
-                }
-            }
-
-            .property-host-rating {
-                width: 100%;
-                flex-direction: row-reverse;
-                justify-content: space-between;
-                margin-top: 0;
-
-                .property-host {
-
-                    // test en cours
-                    top: -70px;
-        
-                    p {
-                        font-size: 12px;
-                    }
-        
-                    img {
-                        width: 32px;
-                        height: 32px;
-                    }
-                }
-
-                .property-rating {
-                    font-size: 20px;
-                }
-            }
-        }
-
-        .property-dropdowns {
-            flex-direction: column;
-            gap: 30px;
-            margin: 30px 0;
         }
     }
 }

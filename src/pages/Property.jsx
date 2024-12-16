@@ -31,20 +31,18 @@ const Property = () => {
         <div className="property">
             <Carousel pictures={property.pictures} />
 
-            <div className="property-header">
-                <div className="property-title-location">
-                    <h1>{property.title}</h1>
-                    <p>{property.location}</p>
-                </div>
-            </div>
-
             <div className="property-details">
-                <div className="property-tags">
-                    {property.tags.map((tag, index) => (
-                        <span key={index} className="tag">
-                            {tag}
-                        </span>
-                    ))}
+
+                <div className="property-title-location-tags">
+                    <h1 className="property-title">{property.title}</h1>
+                    <p className="property-location">{property.location}</p>
+                    <div className="property-tags">
+                        {property.tags.map((tag, index) => (
+                            <span key={index} className="tag">
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
                 </div>
 
                 <div className="property-host-rating">
@@ -63,6 +61,7 @@ const Property = () => {
                         ))}
                     </div>
                 </div>
+
             </div>
 
             <div className="property-dropdowns">
