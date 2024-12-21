@@ -22,7 +22,7 @@ const Dropdown = ({ title, content }) => {
 
 Dropdown.propTypes = {
     title: PropTypes.string.isRequired,
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
+    content: PropTypes.node.isRequired,
 };
 
 export default Dropdown;

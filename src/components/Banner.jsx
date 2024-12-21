@@ -11,7 +11,7 @@ const Banner = ({ image, text }) => {
 };
 
 Banner.propTypes = {
-    image: PropTypes.string,
+    image: PropTypes.string.isRequired,
     text: PropTypes.string,
 };
 

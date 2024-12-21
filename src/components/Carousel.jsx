@@ -5,6 +5,10 @@ import PropTypes from 'prop-types';
 const Carousel = ({ pictures }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
+    if (!Array.isArray(pictures) || pictures.length === 0) {
+        return <div className="carousel">No pictures available</div>;
+    }
+
     const handlePrevious = () => {
         setCurrentIndex((prevIndex) =>
             prevIndex === 0 ? pictures.length - 1 : prevIndex - 1
@@ -44,7 +48,11 @@ const Carousel = ({ pictures }) => {
 };
 
 Carousel.propTypes = {
-    pictures: PropTypes.string,
+    pictures: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
+
+Carousel.defaultProps = {
+    pictures: [],
 };
 
 export default Carousel;
