@@ -1,13 +1,14 @@
 import '../styles/pages/_property.scss';
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Carousel from '../components/Carousel';
 import Dropdown from '../components/Dropdown';
+import NotFound from './NotFound';
 
 const Property = () => {
     const { id } = useParams();
     const [property, setProperty] = useState(null);
-    const navigate = useNavigate();
+    const [notFound, setNotFound] = useState(false);
 
     useEffect(() => {
         fetch('/data.json')
@@ -15,13 +16,20 @@ const Property = () => {
             .then((data) => {
                 const selectedProperty = data.find((item) => item.id === id);
                 if (!selectedProperty) {
-                    navigate('/NotFound');
+                    setNotFound(true);
                 } else {
                     setProperty(selectedProperty);
                 }
             })
-            .catch((error) => console.error('Erreur lors du chargement des données:', error));
-    }, [id, navigate]);
+            .catch((error) => {
+                console.error('Erreur lors du chargement des données:', error);
+                setNotFound(true);
+            });
+    }, [id]);
+
+    if (notFound) {
+        return <NotFound />;
+    }
 
     if (!property) {
         return <div>Chargement...</div>;
